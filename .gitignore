@@ -1,2 +1,5 @@
 # Kaggle competition data (large; download via script.py)
 data/
+
+# Local Python environment
+.venv/
