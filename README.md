@@ -117,7 +117,7 @@ Track progress here so future agents know what is done vs. remaining.
 **Data setup & pre-processing**
 
 - [x] Download TFRecord dataset into the shared environment (`data/`)
-- [ ] Initial pre-processing: image resizing, pixel standardization
+- [x] Initial pre-processing: image resizing, pixel standardization — uses the pre-sized **224×224** TFRecords and scales pixels to [0, 1] (`petal_to_metal.ipynb`)
 
 **Dummy submission**
 
@@ -154,7 +154,7 @@ Track progress here so future agents know what is done vs. remaining.
 - Competition claiming is done; TFRecord data is downloaded under `data/tpu-getting-started/` (gitignored — do not commit).
 - `.gitignore` ignores `data/` and `.venv/`.
 - Local env: Python **3.12** venv + `requirements.txt` (see Setup). Default `python3` on some Macs is 3.14 and cannot install TensorFlow.
-- There is currently no committed training notebook or model code — next useful work is Milestone 1 pre-processing (load TFRecords, resize/standardize), then majority-class dummy `submission.csv` predicting **iris / class 67**.
+- `petal_to_metal.ipynb` is the main project notebook. It currently builds the train/val/test `tf.data` pipelines from the 224×224 TFRecords (decode JPEG, scale to [0, 1], batch 32). Next useful work is the majority-class dummy `submission.csv` predicting **iris / class 67** for every test ID.
 - Prefer a single clean Jupyter notebook that runs top-to-bottom for Canvas; keep heavy data off git.
 
 ## Suggested agent workflow
